@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flip Card Example</title>
-  <style>
-    body{
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flip Card Example</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
 
+      .flip-card {
+        background-color: transparent;
+        width: 400px;
+        height: 520px;
+        perspective: 1000px; /* 3D effect */
+        cursor: pointer;
+        margin: 50px auto;
+      }
 
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
 
-    .flip-card {
-      background-color: transparent;
-      width: 300px;
-      height: 400px;
-      perspective: 1000px; /* 3D effect */
-      cursor: pointer;
-      margin: 50px auto;
-    }
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
 
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+          rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+      }
 
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
+      .flip-card-front {
+        color: black;
+      }
 
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+      .flip-card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-    .flip-card-front {
-      background-color: #fff;
-      color: black;
-    }
-
-    .flip-card-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .flip-card-back {
-      background-color: #b929897c;
-      color: white;
-      transform: rotateY(180deg);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 10px;
-    }
-  </style>
-
-</head>
-<body>
-
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/476465659_1274967050462767_493482449927343313_n.jpg" alt="Profile" />
-      </div>
-      <div class="flip-card-back">
-        <h2>Your Name</h2>
-        <p>I am a web developer passionate about building beautiful and functional user interfaces.</p>
+      .flip-card-back {
+        background-color: #b929897c;
+        color: white;
+        transform: rotateY(180deg);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="images/476465659_1274967050462767_493482449927343313_n.jpg"
+            alt="Profile"
+          />
+        </div>
+        <div class="flip-card-back">
+          <h2>Your Name</h2>
+          <p>
+            I am a web developer passionate about building beautiful and
+            functional user interfaces.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-
-</body>
+  </body>
 </html>
